@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head Tails</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="
+        selector('Heads');play('heads')">Heads</button>
+    <button onclick="selector('Tails');play('tails')">Tails</button>
+    <p class="youdisp"></p>
+
+   <script>
+        function selector(choice){
+            document.querySelector('.youdisp').innerHTML = `You chose : ${choice}`;
+        }
+        let score= JSON.parse(localStorage.getItem('score'))||{
+            wins: 0, losses: 0
+        }
+        let result='';
+        function randomizer() {
+            let x = Math.random();
+            if(x>=0 && x<1/2){
+                return 'heads'
+            }
+            if(x>=1/2 && x<1){
+                return 'tails'
+            }
+        }
+        function play(guess){
+            if (guess == randomizer()) {
+                score.wins++;
+                result = 'Win';
+            }
+            else {
+              score.losses++;
+              result = 'Lose';
+            }
+            localStorage.setItem('score', JSON.stringify(score));
+            display();
+        }
+        function display(){
+            alert(`You ${result}.\nWins: ${score.wins}\nLosses: ${score.losses}`);
+        }
+    </script>
+</body>
+</html>

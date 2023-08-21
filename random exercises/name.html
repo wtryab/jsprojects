@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name</title>
+</head>
+<body>
+    <input type="text" class="name" placeholder="Name" name="" id="" onkeydown="buttoncheck(event.key)">
+    <button type="submit" onclick="inputname()">Submit</button>
+    <p class="desc"></p>
+    <script>
+        function buttoncheck(eve){
+            if(eve == "Enter"){
+                inputname();
+            }
+        }
+        function inputname(){
+            inputele = document.querySelector('.name').value;        
+            document.querySelector('.desc').innerHTML = `Your name is : ${inputele}`;
+        }
+    </script>
+</body>
+</html>

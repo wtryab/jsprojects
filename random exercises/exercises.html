@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+    <style>
+        button{
+            color: black;
+            background-color: rgba(180, 175, 175, 0.781);
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor:pointer;
+        }
+        .istoggled{
+          background-color: black;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="gamebutton2" onclick="onoff('gamebutton2','musicbutton2','techbutton2')">Gaming</button>
+    <button class="musicbutton2" onclick="onoff('musicbutton2','gamebutton2','techbutton2')">Music</button>
+    <button class="techbutton2" onclick="onoff('techbutton2','musicbutton2','gamebutton2')">Tech</button>
+    <br><br>
+    <button class="gamebutton" onclick="select('gamebutton')">Gaming</button>
+    <button class="musicbutton" onclick="select('musicbutton')">Music</button>
+    <button class="techbutton" onclick="select('techbutton')">Tech</button>
+
+    <script>
+      function select(c){
+        let x = document.querySelector(`.${c}`);
+        if (x.classList.contains('istoggled')) {
+          x.classList.remove('istoggled');
+        }
+        else{
+          x.classList.add('istoggled')
+        }
+        }
+      function onoff(o,f,c){
+        console.log('working');
+        let x = document.querySelector(`.${o}`);
+        let y= document.querySelector(`.${f}`);
+        let z = document.querySelector(`.${c}`);
+        if (y.classList.contains('istoggled') || z.classList.contains('istoggled') ) {
+          y.classList.remove('istoggled');
+          z.classList.remove('istoggled');
+          x.classList.add('istoggled');
+        }
+        else if(!(y.classList.contains('istoggled')&&y.classList.contains('istoggled') && z.classList.contains('istoggled'))){
+          x.classList.add('istoggled');
+        }
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <button onclick="display()">Show Quantity</button>
+    <button onclick="add()">Add to Cart</button>
+    <button onclick="add(); add()">+2</button>
+    <button onclick="add(); add(); add()">+3</button>
+    <button onclick="Remove()">Remove From Cart</button>
+    <button onclick="Remove(); Remove()">-2</button>
+    <button onclick="Remove(); Remove();Remove();">-3</button>
+    <p class="cartquantity"></p>
+
+    <script>
+        let cartquantity=0;
+        function display(){
+            document.querySelector('.cartquantity').innerHTML = `Cart Quantity : ${cartquantity}`;
+        }
+        function add(){
+            cartquantity+=1;
+            display();
+        }
+        function Remove(){
+            if(cartquantity==0){
+
+            }
+            else{
+            cartquantity-=1;
+            display();
+        }
+        }
+    </script>
+</body>
+</html>

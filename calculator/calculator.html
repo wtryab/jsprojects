@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body onkeydown="keypress(event.key)">
+    <div class="horizontalgrid">    
+        <p class="display"></p>
+        <div class="verticalgrid">
+            <button class="b1" onkeypress="console.log(event)" onclick="disp(1)">1</button>
+            <button class="b2" onclick="disp(2)">2</button>
+            <button class="b3" onclick="disp(3)">3</button>
+            <button class="plusbutton" onclick="disp('+')">+</button>
+        </div>
+        <div class="verticalgrid">
+            <button class="b4" onclick="disp(4)">4</button>
+            <button class="b5" onclick="disp(5)">5</button>
+            <button class="b6" onclick="disp(6)">6</button>
+            <button class="minusbutton" onclick="disp('-')">-</button>
+        </div>
+        <div class="verticalgrid">
+            <button class="b7" onclick="disp(7)">7</button>
+            <button class="b8" onclick="disp(8)">8</button>
+            <button class="b9" onclick="disp(9)">9</button>
+            <button class="multiplybutton" onclick="disp('*')">*</button>    
+        </div>
+        <div class="verticalgrid">
+            <button class="b0" onclick="disp(0)">0</button>    
+            <button class="plusbutton" onclick="disp('.')">.</button>
+            <button class="equalbutton" onclick="calculate()">=</button>
+            <button class="divbutton" onclick="disp('/')">/</button>
+        </div>
+        <div class="verticalgrid">
+            <button class="delbutton" onclick="del()">AC</button>
+            <button class="backspace" onclick="backspace()">CE</button>
+        </div>
+    </div>
+    <script href="calculator.js"></script>
+</body>
+</html>

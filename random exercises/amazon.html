@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <style>
+        .costoforder{
+            padding: 10px;
+            padding-right: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .calculate{
+            padding: 12px;
+            color: white;
+            background-color: green;
+            border: none;
+        }
+        .turnred{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Amazon Shipping Calculator</h1>
+    <p>Orders under $40 = $10 Shipping</p>
+    <p>Orders above $40 = FREE Shipping</p>
+    <input placeholder="Cost of Order" class="costoforder" minlength="0" type="number" name="cost" id="cost" 
+    onkeydown="
+    entercheck(event.key);
+    ">
+    <button class="calculate" onclick="
+    calculate();
+    ">Calculate</button>
+    <p class="total"></p>
+    <script>
+        function entercheck(button){
+            if(button == 'Enter'){
+                calculate();
+            }
+        }
+        function calculate(){
+            let x =document.querySelector('.total');
+            let inputele= document.querySelector('.costoforder');
+            if (inputele.value >=40) {
+                x.innerHTML = `Eligible for Free Shipping<br>Total Cost = $${inputele.value}`;
+                x.classList.remove('turnred');
+
+            } else if(inputele.value >=0) {
+                x.innerHTML = `<span class="turnred">NOT</span> Eligible for Free Shipping<br>Total Cost = $${Number(inputele.value)+10}`;
+                x.classList.remove('turnred');
+            }
+            else{
+                x.classList.add('turnred');
+                x.innerHTML= `ERROR: Cost cannot be less than 0.`;
+            }
+        }
+    </script>
+</body>
+</html>
